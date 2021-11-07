@@ -1394,7 +1394,7 @@ contract AfroFuturism is ERC721Enumerable, Ownable{
     using Counters for Counters.Counter;
     
     string private _baseTokenURI;
-    uint private reservePrice = 0.1 ether;
+    uint private reservePrice = 0.03 ether;
     uint public currentPrice;
     uint private MAX_TOKEN_SUPPLY = 10000;
     uint256 private max_BulkTokenCount = 30;
@@ -1504,12 +1504,24 @@ contract AfroFuturism is ERC721Enumerable, Ownable{
         reservePrice = _price;
     }
     
+    function setReservePeriod(uint _period) public onlyOwner {
+        reservedPeriod = _period;
+    }
+    
     function setPrice(uint _price) public onlyOwner {
         currentPrice = _price;
     }
     
     function getPrice() public view returns(uint) {
         return currentPrice;
+    }
+    
+    function getUnlockTime() public view returns (uint){
+        return (initialTime + reservedPeriod);
+    }
+    
+    function isLocked() public view returns (bool){
+        return block.timestamp > (initialTime + reservedPeriod);
     }
     
     function withdrawAll() public payable onlyOwner {
@@ -1521,10 +1533,6 @@ contract AfroFuturism is ERC721Enumerable, Ownable{
         require(_devAccount != address(0), "Cannot be zero address");
         devAccount = _devAccount;
     }  
-    
-    function setReservePeriod(uint _period) public onlyOwner {
-        reservedPeriod = _period;
-    }
     
     function destroySmartContract(address payable _to) public onlyOwner{
         selfdestruct(_to);
