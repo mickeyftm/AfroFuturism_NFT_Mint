@@ -21,6 +21,9 @@ export default {
     background-image: url('./assets/img/topback.png');
     background-repeat: no-repeat;
     background-position: center;
+    font-size:40px; 
+    color:white;
+    padding-bottom: 100px;
   }
 
   .symbol-women-sec {

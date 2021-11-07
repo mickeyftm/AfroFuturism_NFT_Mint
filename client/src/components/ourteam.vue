@@ -1,0 +1,133 @@
+<template>
+<section class="our-team-sec-main">
+      <div class="container">
+        <div v-if="!isMobile"  class="row">
+          <div class="col-md-12">
+            <div class="tittle-sample mb-30">
+              Our Team
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="main-image-wraper-teamm">
+              <div class="inner-image-wrap d-flex align-items-center">
+                <img src="../assets/img/samp-1.jpg" class="img-fluid">
+              </div>
+              <div class="team-image-bottom-tittle">
+                <h2>Name Here</h2>
+                <p>Project Lead</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="main-image-wraper-teamm">
+              <div class="inner-image-wrap d-flex align-items-center">
+                <img src="../assets/img/sam-2.png" class="img-fluid">
+              </div>
+              <div class="team-image-bottom-tittle">
+                <h2>Name Here</h2>
+                <p>Project Lead</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="main-image-wraper-teamm">
+              <div class="inner-image-wrap d-flex align-items-center">
+                <img src="../assets/img/samp-3.png" class="img-fluid">
+              </div>
+              <div class="team-image-bottom-tittle">
+                <h2>Name Here</h2>
+                <p>Project Lead</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="main-image-wraper-teamm">
+              <div class="inner-image-wrap d-flex align-items-center">
+                <img src="../assets/img/samp-1.jpg" class="img-fluid">
+              </div>
+              <div class="team-image-bottom-tittle">
+                <h2>Name Here</h2>
+                <p>Project Lead</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div v-if="isMobile"  class="row">
+          <div class="col-md-12">
+            <div class="tittle-sample mb-30">
+              our team
+            </div>
+          </div>
+          <div class="col-md-3 main-image-wraper-teamm-image">
+            <div class="main-image-wraper-teamm">
+              <div class="inner-image-wrap d-flex align-items-center">
+                <img src="../assets/img/samp-1.jpg" class="img-fluid">
+              </div>
+              <div class="team-image-bottom-tittle">
+                <h2>Name Here</h2>
+                <p>Project Lead</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 main-image-wraper-teamm-image">
+            <div class="main-image-wraper-teamm">
+              <div class="inner-image-wrap d-flex align-items-center">
+                <img src="../assets/img/sam-2.png" class="img-fluid">
+              </div>
+              <div class="team-image-bottom-tittle">
+                <h2>Name Here</h2>
+                <p>Project Lead</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 main-image-wraper-teamm-image">
+            <div class="main-image-wraper-teamm">
+              <div class="inner-image-wrap d-flex align-items-center">
+                <img src="../assets/img/samp-3.png" class="img-fluid">
+              </div>
+              <div class="team-image-bottom-tittle">
+                <h2>Name Here</h2>
+                <p>Project Lead</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 main-image-wraper-teamm-image">
+            <div class="main-image-wraper-teamm">
+              <div class="inner-image-wrap d-flex align-items-center">
+                <img src="../assets/img/samp-1.jpg" class="img-fluid">
+              </div>
+              <div class="team-image-bottom-tittle">
+                <h2>Name Here</h2>
+                <p>Project Lead</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+</template>
+
+<script>
+    export default {
+        name: "ourteam",
+        data() {
+            return {
+                windowWidth: window.innerWidth,
+            }
+        },
+        mounted() {
+            window.addEventListener('resize', () => {
+                this.windowWidth = window.innerWidth
+            })
+        },
+        computed: {
+            isMobile() {
+                return this.windowWidth < 850;
+            }
+        }
+    }
+</script>
+
+<style>
+
+</style>
