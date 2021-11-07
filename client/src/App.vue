@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <WomanWorld msg="Welcome to Your Vue.js App"/>
+    <AfroFuturism />
   </div>
 </template>
 
 <script>
-import WomanWorld from './components/WomanWorld.vue'
+import AfroFuturism from './components/afFuturism.vue'
 
 export default {
   name: 'App',
   components: {
-    WomanWorld
+    AfroFuturism
   }
 }
 </script>

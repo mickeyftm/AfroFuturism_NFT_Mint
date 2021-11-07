@@ -6,16 +6,19 @@
         <div class="col-md-12">
           <div class="three-box-iconss">
             <div class="social-icon-1">
+              <a href="https://twitter.com/" class="link">
               <img src="../assets/img/twitter-.png" class="img-fluid">
-
+              </a>
             </div>
             <div class="social-icon-2">
+              <a href="https://discord.gg/" class="link">
               <img src="../assets/img/footer-ft-2.png" class="img-fluid">
-
+              </a>
             </div>
             <div class="social-icon-3">
+              <a href="https://discord.gg/" class="link">
               <img src="../assets/img/hand-ft-3.png" class="img-fluid">
-
+              </a>
             </div>
 
           </div>

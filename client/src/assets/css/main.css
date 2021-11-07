@@ -12968,15 +12968,12 @@ section.footer-sec {
 .connect-image-content {
   width: 300px;
   background: #543dbe;
-  position: absolute;
-  top: 5rem;
-  right: 0rem;
-  height: 6rem;
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
 
+  margin-left:77%;
   margin-bottom: 0px;
   color: white;
   font-size: 1.8rem;
@@ -12985,17 +12982,14 @@ section.footer-sec {
 
 .connect-image-content-mobile {
   margin:auto;
-  width: 300px;
+  width: 270px;
   background: #543dbe;
-  top: 5rem;
-  right: 0rem;
-  height: 6rem;
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
 
-  margin-bottom: 0px;
+  padding:5px 0;
   color: white;
   font-size: 1.8rem;
   text-align:center;
