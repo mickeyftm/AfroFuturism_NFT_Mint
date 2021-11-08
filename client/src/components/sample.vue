@@ -2,85 +2,81 @@
     <section class="sample-women-sec">
       <div class="container">
         <div class="row">
-          <div class="col-md-0">
+          <div class="col-md-12">
             <div class="tittle-sample">
               Sample Women
             </div>
           </div>
         </div>
-        <div v-if="!isMobile" class="slider-sample">
+        <div class="slider-sample">
           <VueSlickCarousel v-bind="settings" :arrows="true" :dots="true">
-            <div>
+            <div class="">
               <div class="main-image-wraper-sam">
                 <div class="inner-image-wrap d-flex align-items-center">
                   <img src="../assets/img/samp-1.jpg" class="img-fluid">
                 </div>
               </div>
             </div>
-            <div>
+            <div class="">
               <div class="main-image-wraper-sam">
                 <div class="inner-image-wrap d-flex align-items-center">
-                  <img src="../assets/img/sam-2.png" class="img-fluid">
+                  <img src="../assets/img/samp-2.png" class="img-fluid">
                 </div>
               </div>
             </div>
-            <div>
+            <div class="">
               <div class="main-image-wraper-sam">
                 <div class="inner-image-wrap d-flex align-items-center">
                   <img src="../assets/img/samp-3.png" class="img-fluid">
                 </div>
               </div>
             </div>
-            <div>
+            <div class="">
               <div class="main-image-wraper-sam">
                 <div class="inner-image-wrap d-flex align-items-center">
                   <img src="../assets/img/samp-1.jpg" class="img-fluid">
                 </div>
               </div>
             </div>
-            <div>
+            <div class="">
+              <div class="main-image-wraper-sam">
+                <div class="inner-image-wrap d-flex align-items-center">
+                  <img src="../assets/img/samp-2.png" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="">
               <div class="main-image-wraper-sam">
                 <div class="inner-image-wrap d-flex align-items-center">
                   <img src="../assets/img/samp-3.png" class="img-fluid">
                 </div>
               </div>
             </div>
-          </VueSlickCarousel>
-        </div>
-        <div v-if="isMobile" class="slider-sample">
-          <VueSlickCarousel  v-bind="settings_mobile" :arrows="true" :dots="true" style="padding:0 10px;">
-            <div>
-              <div class="main-image-wraper-sam-mobile">
+            <div class="">
+              <div class="main-image-wraper-sam">
                 <div class="inner-image-wrap d-flex align-items-center">
                   <img src="../assets/img/samp-1.jpg" class="img-fluid">
                 </div>
               </div>
             </div>
-            <div>
-              <div class="main-image-wraper-sam-mobile">
+            <div class="">
+              <div class="main-image-wraper-sam">
                 <div class="inner-image-wrap d-flex align-items-center">
-                  <img src="../assets/img/sam-2.png" class="img-fluid">
+                  <img src="../assets/img/samp-2.png" class="img-fluid">
                 </div>
               </div>
             </div>
-            <div>
-              <div class="main-image-wraper-sam-mobile">
+            <div class="">
+              <div class="main-image-wraper-sam">
                 <div class="inner-image-wrap d-flex align-items-center">
                   <img src="../assets/img/samp-3.png" class="img-fluid">
                 </div>
               </div>
             </div>
-            <div>
-              <div class="main-image-wraper-sam-mobile">
+            <div class="">
+              <div class="main-image-wraper-sam">
                 <div class="inner-image-wrap d-flex align-items-center">
                   <img src="../assets/img/samp-1.jpg" class="img-fluid">
-                </div>
-              </div>
-            </div>
-            <div>
-              <div class="main-image-wraper-sam-mobile">
-                <div class="inner-image-wrap d-flex align-items-center">
-                  <img src="../assets/img/samp-3.png" class="img-fluid">
                 </div>
               </div>
             </div>
@@ -97,40 +93,53 @@
     import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
 
     export default {
-        name: "sample",
-        components: {VueSlickCarousel},
+      name: "sample",
+      components: {VueSlickCarousel},
 
-        data() {
-        return {
-            settings: {
-                "focusOnSelect": true,
+      data() {
+      return {
+        settings: {
+          "focusOnSelect": true,
+          "infinite": true,
+          "speed": 500,
+          "slidesToShow": 4,
+          "slidesToScroll": 1,
+          "initialSlide": 0,
+          "responsive": [
+            {
+              "breakpoint": 1024,
+              "settings": {
+                "slidesToShow": 3,
+                "slidesToScroll": 3,
                 "infinite": true,
-                "speed": 500,
-                "slidesToShow": 4,
-                "slidesToScroll": 1,
+                "dots": true
+              }
             },
-            settings_mobile: {
-                "focusOnSelect": true,
-                "infinite": true,
-                "speed": 500,
+            {
+              "breakpoint": 600,
+              "settings": {
                 "slidesToShow": 2,
-                "slidesToScroll": 1,
+                "slidesToScroll": 2,
+                "initialSlide": 2
+              }
             },
-            windowWidth: window.innerWidth,
-        }
-        },
-
-        mounted() {
-            window.addEventListener('resize', () => {
-                this.windowWidth = window.innerWidth
-            })
-        },
-        computed: {
-            isMobile() {
-                return this.windowWidth < 850;
+            {
+              "breakpoint": 480,
+              "settings": {
+                "slidesToShow": 1,
+                "slidesToScroll": 1
+              }
             }
+          ]
         }
+      }
+    },
+
+    mounted() {
+    },
+    computed: {
     }
+  }
 </script>
 
 <style>

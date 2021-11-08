@@ -16,17 +16,26 @@ export default {
 </script>
 
 <style>
+
   .sec-main-top{
     background: #01100f;
     background-image: url('./assets/img/topback.png');
     background-repeat: no-repeat;
     background-position: center;
-    font-size:40px; 
-    color:white;
-    padding-bottom: 100px;
+    background-size: cover;
   }
 
-  .symbol-women-sec {
+  .about-sec-ma {
+    background: #01100f;
+    padding: 4rem 0rem 14rem;
+  }
+
+  .sample-women-sec {
+    background: #01100f;
+    padding: 4rem 0rem 14rem;
+  }
+
+ .symbol-women-sec {
     padding-top:50px;
     padding-bottom:250px;
     background: #01100f;
@@ -37,15 +46,17 @@ export default {
   }
 
   .road-map-se {
+    margin-top:0px;
     background: #01100f;
     background-image: url('./assets/img/secondback_2.png');
     background-repeat: no-repeat;
     background-position-x:center;
     background-position-y:top;
+    padding-bottom: 90px;
   }
 
   .road-map-se-content {
-    position: relative;
+    position: absolute;
     bottom: 0;
     left: 41%;
   }
