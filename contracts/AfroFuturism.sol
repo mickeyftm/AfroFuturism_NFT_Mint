@@ -1423,9 +1423,9 @@ contract AfroFuturism is ERC721Enumerable, Ownable{
     constructor() ERC721
         ("AfroFuturism", "AF") 
     {
-//      _baseTokenURI = "https://gateway.pinata.cloud/ipfs/QmXMvgmj9aNxymSvbB3m9CKkjFUTqS5t2H7FUVobpe2E64/";
+//      _baseTokenURI = "https://gateway.pinata.cloud/ipfs/QmXMvgmj9aNxymSvbB3m9CKkjFUTqS5t2H7FUVobpe2E64/Vision";
     
-        _baseTokenURI = "https://gateway.pinata.cloud/ipfs/QmYMA2a7mpC6yUenmYAiUtb4sA4AWtUeLHuUsHtWiDHCur/";
+        _baseTokenURI = "https://gateway.pinata.cloud/ipfs/QmYMA2a7mpC6yUenmYAiUtb4sA4AWtUeLHuUsHtWiDHCur/Vision";
 
         currentPrice = reservePrice;
         devAccount = _msgSender();
@@ -1437,7 +1437,7 @@ contract AfroFuturism is ERC721Enumerable, Ownable{
         return _baseTokenURI;
     }
     
-    function generateTokenId() private view returns (uint256){
+    function generateRandomTokenId() private view returns (uint256){
         uint256 ticketNumber;
         uint index;
         bool bMinted;
@@ -1471,11 +1471,12 @@ contract AfroFuturism is ERC721Enumerable, Ownable{
         require(msg.value == currentPrice);
         
         uint256 tokenId = 0;
-        tokenId = generateTokenId();
-        
-        _mint(_msgSender(), tokenId);
         
         _tokenIdTracker.increment();
+        
+        tokenId = _tokenIdTracker.current();
+        
+        _mint(_msgSender(), tokenId);
         
         _tokenStatus[tokenId] = Status.Minted;
     }
@@ -1489,11 +1490,11 @@ contract AfroFuturism is ERC721Enumerable, Ownable{
         
         for (uint i=0; i<_count; i++)
         {
-            tokenId = generateTokenId();
+            _tokenIdTracker.increment();
+            
+            tokenId = _tokenIdTracker.current();
             
             _mint(_msgSender(), tokenId);
-            
-            _tokenIdTracker.increment();
             
             _tokenStatus[tokenId] = Status.Minted;
         }
