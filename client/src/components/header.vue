@@ -1,12 +1,12 @@
 <template>
     <section class="sec-main-top">
       <notification v-if="hasMessage"/>
-      <btn type="button" @click="connectWallet" v-if="isMetaMaskInstalled && !isMetaMaskConnected" class="connect-image-content">
+      <div type="button" @click="connectWallet" v-if="isMetaMaskInstalled && !isMetaMaskConnected" class="connect-image-content">
         <img class="img-fluid" src="../assets/img/metamask.png"><p>Connect MetaMask</p>
-      </btn>
-      <btn type="button" @click="lockMetamask" v-if="isMetaMaskInstalled && isMetaMaskConnected" class="connect-image-content">
+      </div>
+      <div type="button" @click="lockMetamask" v-if="isMetaMaskInstalled && isMetaMaskConnected" class="connect-image-content">
         <img class="img-fluid" src="../assets/img/metamask.png"><p>Connected</p>
-      </btn>
+      </div>
       <div class="image-div-back">
         <div class="container">
           <div class="row">
