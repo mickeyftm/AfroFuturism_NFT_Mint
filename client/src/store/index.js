@@ -251,7 +251,7 @@ export default new Vuex.Store({
             console.error(err);
           }
         });  
-    },/*
+    },*/
     disconnect({state}) {
         state.account = null
     },
