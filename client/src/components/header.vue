@@ -38,12 +38,12 @@
               </div>
               <div class="box-counter-1">
                 <h2>{{totalSupply}}/10000</h2>
-                <p>Mint Price: {{getPrice}} ETH</p>
+                <p>Mint Price: {{getPrice}} ETH each</p>
                 <div class="number">
-                  <span class="minus" @click="operator('-')">-&nbsp;&nbsp;</span>
+                  <span class="minus" @click="operator('-')">-</span>
                   <div>
-                    <input type="number" v-model="count" value="1" style="font-size: 24px; width:80px; margin-bottom:3px; text-align:center"/>
-                    <h3 class="titlle-input">{{count}} mint</h3>
+                    <input type="number" min="0" max="30" v-model="count" value="1" />
+                    <h3 class="titlle-input">Cost {{getTotalPrice}} ETH</h3>
                   </div>
                   <span class="plus" @click="operator('+')">+</span>
                 </div>
@@ -112,6 +112,11 @@ export default {
             return BigNumber(this.$store.state.afroFuturism.price).shiftedBy(-18)
         return BigNumber(0)
     },
+    getTotalPrice() {
+      if(this.$store.state.afroFuturism.price > 0)
+            return BigNumber(this.$store.state.afroFuturism.price * this.count).shiftedBy(-18)
+        return BigNumber(0)
+    },
     hasMessage() {
         return this.$store.state.messageContent!=null
     }
@@ -163,7 +168,7 @@ export default {
 
         var daysDifference = Math.floor(difference/1000/60/60/24);
         var dayString;
-        if (dayString < 10)
+        if (daysDifference < 10)
           dayString = "0" + daysDifference.toString();
         else
           dayString = daysDifference.toString();

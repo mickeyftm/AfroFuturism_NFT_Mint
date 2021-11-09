@@ -9,8 +9,9 @@ import abiAfroFuturism from '@/abi/afroFuturism.json'
 BigNumber.config({ EXPONENTIAL_AT: 100 })
 
 const ADDR_OWNER = ''
-const ADDR_TOKEN_AF = '0x14a050441761331c4a188242e2eC95364570B619'
+const ADDR_TOKEN_AF = '0xf0DcbdBeD09B8B864abf9f48A479E639c2A79DdC'
 const MAXIMUM_MINT_TOKEN = 10000;
+const MAXIMUM_BULK_MINT_TOKEN = 30;
 
 Vue.use(Vuex)
 
@@ -20,7 +21,7 @@ export default new Vuex.Store({
     messageContent: null,
     messageType: null,
     contracts: {
-        tokenAf: null,
+        tokenAfroFuturism: null,
     },
     afroFuturism: {
         totalSupply: 0,
@@ -226,7 +227,7 @@ export default new Vuex.Store({
                       rpcUrls: ['https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'],
                       blockExplorerUrls: ['https://etherscan.io'],
                       nativeCurrency: {
-                        name: 'Rinkeby',
+                        name: 'Ethereum',
                         symbol: 'ETH',
                         decimals: 18
                       }
@@ -250,7 +251,7 @@ export default new Vuex.Store({
             console.error(err);
           }
         });  
-    },*/
+    },/*
     disconnect({state}) {
         state.account = null
     },
@@ -267,9 +268,9 @@ export default new Vuex.Store({
           return;
         }
 
-        if (params.countOfToken == 0)
+        if (params.countOfToken > MAXIMUM_BULK_MINT_TOKEN || params.countOfToken <= 0)
         {
-          commit('show_warning', 'You can not mint 0 tokens!');
+          commit('show_warning', 'Mint count error!');
           return;
         }
 
@@ -280,14 +281,14 @@ export default new Vuex.Store({
             return;
             }
 
-            state.contracts.afroFuturism.methods.mintBulkAF(params.countOfToken).send({
+            let totalPrice = state.afroFuturism.price * params.countOfToken;
+            state.contracts.tokenAfroFuturism.methods.mintBulkAF(params.countOfToken).send({
                 from: state.account.address,
-                value:BigNumber(state.afroFuturism.price * params.countOfToken).integerValue().toString()
+                value: BigNumber(totalPrice).integerValue().toString()
             }).then(()=>{
                 commit('show_success', 'Minted successfully!');
                 commit('read_afroFuturism');
             })
-
         }).catch((error)=>{
             console.error("isLocked",error)
         });

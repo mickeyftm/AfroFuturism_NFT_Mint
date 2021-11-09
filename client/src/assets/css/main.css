@@ -12333,10 +12333,13 @@ a.text-dark:hover, a.text-dark:focus {
       -ms-flex-pack: center;
           justify-content: center;
   text-align: center;
+  font-size:24px;
+  width:80px;
+  margin:3px auto;
 }
 
 .number .titlle-input {
-  font-size: 2rem;
+  font-size: 1.7rem;
   color: white;
   text-align: center;
 }
@@ -12372,9 +12375,9 @@ a.text-dark:hover, a.text-dark:focus {
 
 .box-counter-1 {
   background: #000303;
-  margin-top: 20px !important;
+  margin-top: 40px !important;
   max-width: 450px;
-  height: 450px;
+  height: 420px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12399,7 +12402,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .box-counter-1 p {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: white;
 }
 
@@ -30822,9 +30825,9 @@ dl {
   .box-counter-1 {
     height: 360px;
     max-width: 34rem;
-}
-.box-counter-1 .number {
-  max-width: 30.5rem;
-}
+  }
+  .box-counter-1 .number {
+    max-width: 30.5rem;
+  }
 }
 

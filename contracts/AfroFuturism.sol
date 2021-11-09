@@ -1394,11 +1394,11 @@ contract AfroFuturism is ERC721Enumerable, Ownable{
     using Counters for Counters.Counter;
     
     string private _baseTokenURI;
-    uint private reservePrice = 0.03 ether;
+    uint private reservePrice = 0.01 ether;
     uint public currentPrice;
     uint private MAX_TOKEN_SUPPLY = 10000;
     uint256 private max_BulkTokenCount = 30;
-    uint256 private reservedPeriod = 30 days;               // 30 days
+    uint256 private reservedPeriod = 300; //3 days;               // 30 days
     uint256 private initialTime;
         
     address private devAccount;
@@ -1481,7 +1481,8 @@ contract AfroFuturism is ERC721Enumerable, Ownable{
         _tokenStatus[tokenId] = Status.Minted;
     }
 
-    function mintBulkAF(uint8 _count) payable public lock {
+    function mintBulkAF(uint _count) payable public lock {
+        require(_count <= max_BulkTokenCount, "Too Many Minting Count");
         require(_tokenIdTracker.current() + _count <= MAX_TOKEN_SUPPLY, "Too Many Tokens");
         require((block.timestamp - initialTime) > reservedPeriod, "Not right to mint now");
         require(msg.value == currentPrice * _count);
